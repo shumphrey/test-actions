@@ -11,18 +11,22 @@ jobs:
         uses: actions/checkout@v2
         with:
           repository: junegunn/vader.vim
+          path: vader.vim
       - name: Git clone Fugitive
         uses: actions/checkout@v2
         with:
           repository: tpope/vim-fugitive
+          path: vim-fugitive
       - name: List files in the repository
         run: |
           ls -R ${{ github.workspace }}/../
       - name: Check out repository code
         uses: actions/checkout@v2
+        with:
+          path: fugitive-gitlab.vim
       - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
       - run: echo "🖥️ The workflow is now ready to test your code on the runner."
       - name: List files in the repository
         run: |
-          ls -R ${{ github.workspace }}/../
+          ls -R ${{ github.workspace }}
       - run: echo "🍏 This job's status is ${{ job.status }}."
